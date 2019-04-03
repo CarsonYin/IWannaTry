@@ -53,8 +53,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\sourceCode\CurrentSceneManager.cs" />
      <Compile Include="Assets\sourceCode\DataManager.cs" />
-     <Compile Include="Assets\sourceCode\PlayerCountrol.cs" />
+     <Compile Include="Assets\sourceCode\PlayerControl.cs" />
+     <Compile Include="Assets\sourceCode\SavePointData.cs" />
      <Compile Include="Assets\sourceCode\TrapReact.cs" />
      <Compile Include="Assets\sourceCode\TrapReact1.cs" />
      <Compile Include="Assets\sourceCode\TriggerCtrl.cs" />

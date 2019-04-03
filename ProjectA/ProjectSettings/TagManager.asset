@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wall
+  - Ground
+  - Deadly
+  - LevelGate
+  - SavePoint
   layers:
   - Default
   - TransparentFX
@@ -38,6 +43,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 2862334299
+    locked: 0
+  - name: HiddenItems
+    uniqueID: 3980803947
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
