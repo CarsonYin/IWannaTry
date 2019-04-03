@@ -269,7 +269,7 @@ Transform:
   - {fileID: 2088966084}
   - {fileID: 387034550}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &38368439
 PrefabInstance:
@@ -1737,7 +1737,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 46
+  orthographic size: 47
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3976,7 +3976,7 @@ GameObject:
   m_Component:
   - component: {fileID: 710619078}
   m_Layer: 0
-  m_Name: staticBlock
+  m_Name: StaticBlocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4158,7 +4158,7 @@ Transform:
   - {fileID: 50837842}
   - {fileID: 553581624}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &712883352
 PrefabInstance:
@@ -5410,7 +5410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4908612821087978, guid: 44b5e5cc8b537ae409cb0a6b11d45c0a, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114182551669230624, guid: 44b5e5cc8b537ae409cb0a6b11d45c0a,
         type: 3}
@@ -5906,7 +5906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4223457743496306, guid: 51827f6aa7b9f0843a4a71ea661b3dce, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4223457743496306, guid: 51827f6aa7b9f0843a4a71ea661b3dce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6807,7 +6807,7 @@ Transform:
   - {fileID: 268121300}
   - {fileID: 1955177288}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1307083053
 PrefabInstance:
@@ -11804,7 +11804,7 @@ PrefabInstance:
     - target: {fileID: 4268268636130068149, guid: b8a274c8052d2bd49a78346af5ecfc07,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4268268636130068149, guid: b8a274c8052d2bd49a78346af5ecfc07,
         type: 3}
@@ -11873,7 +11873,7 @@ PrefabInstance:
     - target: {fileID: 4825192642441187938, guid: dec4c88e2b1aefb4181ade9203e439c4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4825192642441187938, guid: dec4c88e2b1aefb4181ade9203e439c4,
         type: 3}
