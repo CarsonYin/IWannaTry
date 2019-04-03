@@ -8,7 +8,12 @@ public class DataManager : MonoBehaviour
     public static DataManager Instance;
 
     public LevelNames currentLevel;
+
+    // Player info
     private int currentSavePoint;
+    public bool haveShield;
+    public int shieldFragmentNumber;
+    // Ends Player info
 
     public int CurrentSavePoint { get => currentSavePoint; set => currentSavePoint = value; }
 
@@ -56,6 +61,7 @@ public class DataManager : MonoBehaviour
             player.transform.position = sceneManager.transform.GetChild(currentSavePoint).position;
 
         }
-
+        player.gameObject.GetComponent<PlayerControl>().haveShield = haveShield;
+        player.gameObject.GetComponent<PlayerControl>().shieldFragmentNumber = shieldFragmentNumber;
     }
 }

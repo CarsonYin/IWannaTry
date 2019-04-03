@@ -23,8 +23,6 @@ public class CurrentSceneManager : MonoBehaviour
 
     public void ResetSavePointSprite(int newSavePointNumber)
     {
-        Debug.Log(currentSavePoint);
-        Debug.Log(newSavePointNumber);
 
         if (currentSavePoint > -1)
         {

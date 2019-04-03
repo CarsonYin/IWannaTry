@@ -19,7 +19,6 @@ public class TriggerCtrl : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("sdadasd");
         if (other.gameObject.tag == "Player")
         {
             if (alreadyActiv)

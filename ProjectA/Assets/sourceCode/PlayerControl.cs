@@ -27,6 +27,15 @@ public class PlayerControl : MonoBehaviour
     private float timer;
     public int levelNum;
 
+    public bool haveShield;
+    public bool shieldOn;
+    public int shieldFragmentNeeded;
+    public int shieldFragmentNumber;
+    public float shieldRemainTime;
+    [SerializeField]
+    private float shieldTimer;
+
+    private SpriteRenderer shield;
 
     void Awake()
     {
@@ -50,6 +59,8 @@ public class PlayerControl : MonoBehaviour
         PlayerRight = Resources.Load<Sprite>("PNGs/I-wannaLeftRight");
 
         timer = 0;
+
+
     }
 
 
@@ -61,11 +72,45 @@ public class PlayerControl : MonoBehaviour
         // Respawn Settings
         DataManager.Instance.RespawnSettings();
         // Respawn Settings Ends
+
+        shield = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+        shield.enabled = false;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        // items
+        // shield
+        if (shieldFragmentNumber >= shieldFragmentNeeded)
+        {
+            shieldFragmentNumber = 0;
+            haveShield = true;
+        }
+
+        if (shieldOn)
+        {
+            if (shieldTimer < shieldRemainTime)
+            {
+                shieldTimer += Time.deltaTime;
+            }
+            else
+            {
+                shieldOn = false;
+                shieldTimer = 0;
+                shield.enabled = false;
+            }
+        }
+
+        // end shield
+
+
+
+
+        // end items
 
         // Right
         if (Input.GetKey(KeyCode.D))
@@ -173,34 +218,58 @@ public class PlayerControl : MonoBehaviour
 
 
     }
-
-
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "Deadly")
         {
-            //   Debug.Log("你挂了");
+            if (haveShield)
+            {
+                shieldOn = true;
+                haveShield = false;
 
-            SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
+                shield.enabled = true;
+            }
+            else if (shieldOn)
+            {
+
+            }
+            else
+            {
+                SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
+            }
 
         }
-        else if (other.gameObject.tag == "LevelGate")
+
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.gameObject.tag == "LevelGate")
         {
             DataManager.Instance.currentLevel++;
             SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
         }
         else if (other.gameObject.tag == "SavePoint")
         {
-           // other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            SaveData();
+
+
+            // other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
             //other.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("PNGs/SavePointHighLighted");
 
             int savePointNumber = other.gameObject.GetComponent<SavePointData>().number;    // order number of new save point
 
             // update save point data in current scene manager for change sprite
-            other.gameObject.transform.parent.GetComponent<CurrentSceneManager>().ResetSavePointSprite(savePointNumber);  
+            other.gameObject.transform.parent.GetComponent<CurrentSceneManager>().ResetSavePointSprite(savePointNumber);
             DataManager.Instance.ChangeSavePoint(savePointNumber);  // update save point data in data manager for respawn
 
+        }
+        else if (other.gameObject.tag == "ShieldFrag")
+        {
+            shieldFragmentNumber++;
+            Destroy(other.gameObject);
         }
 
     }
@@ -215,5 +284,10 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    void SaveData()
+    {
+        DataManager.Instance.haveShield = haveShield;
+        DataManager.Instance.shieldFragmentNumber = shieldFragmentNumber;
+    }
 
 }
