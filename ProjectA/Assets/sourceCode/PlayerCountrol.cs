@@ -176,17 +176,9 @@ public class PlayerCountrol : MonoBehaviour
         if (other.gameObject.tag == "Deadly")
         {
             //   Debug.Log("你挂了");
-            switch (levelNum)
-            {
-                case 0:
-                    SceneManager.LoadScene("Level1");
-                    break;
-                case 1:
-                    SceneManager.LoadScene("Level1");
-                    break;
-                default:
-                    break;
-            }
+            
+           SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
+           
         }
         //else if (other.gameObject.tag == "SavePoint")
         //{
@@ -194,8 +186,8 @@ public class PlayerCountrol : MonoBehaviour
         //}
         else if (other.gameObject.tag == "LevelGate")
         {
-            SceneManager.LoadScene("Level1");
-            levelNum++;
+            DataManager.Instance.currentLevel++;
+            SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
         }
 
     }
