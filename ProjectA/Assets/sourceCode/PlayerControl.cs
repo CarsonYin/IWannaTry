@@ -270,7 +270,8 @@ public class PlayerControl : MonoBehaviour
 
         }
 
-        else{
+        else if (other.gameObject.tag == "LevelGate")
+        {
             DataManager.Instance.currentLevel++;
             SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
             DataManager.Instance.currentSavePoint = -1;
