@@ -10,12 +10,10 @@ public class DataManager : MonoBehaviour
     public LevelNames currentLevel;
 
     // Player info
-    private int currentSavePoint;
+    public int currentSavePoint;
     public bool haveShield;
     public int shieldFragmentNumber;
     // Ends Player info
-
-    public int CurrentSavePoint { get => currentSavePoint; set => currentSavePoint = value; }
 
     public enum LevelNames
     {
@@ -41,7 +39,7 @@ public class DataManager : MonoBehaviour
     {
 
         SceneManager.LoadScene(currentLevel.ToString());
-        CurrentSavePoint = -1;  // Means Did not reach any savepoint at current level
+        currentSavePoint = -1;  // Means Did not reach any savepoint at current level
 
     }
 

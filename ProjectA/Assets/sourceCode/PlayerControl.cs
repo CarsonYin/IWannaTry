@@ -236,6 +236,9 @@ public class PlayerControl : MonoBehaviour
             else
             {
                 SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
+
+
+
             }
 
         }
@@ -244,11 +247,33 @@ public class PlayerControl : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-
-        if (other.gameObject.tag == "LevelGate")
+        if (other.gameObject.tag == "Deadly")
         {
+            if (haveShield)
+            {
+                shieldOn = true;
+                haveShield = false;
+
+                shield.enabled = true;
+            }
+            else if (shieldOn)
+            {
+
+            }
+            else
+            {
+                SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
+
+
+
+            }
+
+        }
+
+        else{
             DataManager.Instance.currentLevel++;
             SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
+            DataManager.Instance.currentSavePoint = -1;
         }
         else if (other.gameObject.tag == "SavePoint")
         {
