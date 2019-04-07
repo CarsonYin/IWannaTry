@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
-
-
+    //define bullet and 判断方向
+    public bool isFacingRight;
+    public GameObject rightFirePos, leftFirePos;
+    public GameObject leftBullet, rightBullet;
+    
 
     public bool OnTheFloor;
     //public bool jumped;
@@ -37,11 +40,6 @@ public class PlayerControl : MonoBehaviour
     private float shieldTimer;
 
     private SpriteRenderer shield;
-
-    //define bullet and 判断方向
-    public bool isFacingRight;
-    public GameObject leftBullet, rightBullet;
-    Transform firePos;
 
     void Awake()
     {
@@ -82,7 +80,7 @@ public class PlayerControl : MonoBehaviour
         shield = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         shield.enabled = false;
 
-        firePos = transform.FindChild("firePos");
+        isFacingRight = true;
 
     }
 
@@ -177,6 +175,11 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Fire();
+        }
+
         // Jump
         if (Input.GetKey(KeyCode.J))
         {
@@ -223,17 +226,12 @@ public class PlayerControl : MonoBehaviour
             }
             OnTheFloor = false;
 
-            //press K button for shooting
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                Fire();
-            }
 
         }
 
         // player.transform.Translate()
         //  player.rigit.AddForce(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
-
+        //press K button for shooting
 
     }
     void OnTriggerStay2D(Collider2D other)
@@ -333,11 +331,11 @@ public class PlayerControl : MonoBehaviour
     {
         if(isFacingRight)
         {
-            Instantiate(rightBullet, firePos.position, Quaternion.identity);
+            Instantiate(rightBullet, rightFirePos.transform.position, rightBullet.transform.rotation);
         }
         if(!isFacingRight)
         {
-            Instantiate(leftBullet, firePos.position, Quaternion.identity);
+            Instantiate(leftBullet, leftFirePos.transform.position, leftBullet.transform.rotation);
         }
 
     }
