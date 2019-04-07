@@ -5,11 +5,17 @@ using UnityEngine;
 public class BulletCtrl : MonoBehaviour
 {
     public Vector2 speed;
+    public float delay;
+    private Rigidbody2D rb;
 
-    Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        Destroy(gameObject, delay);
+
+
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = speed;
     }

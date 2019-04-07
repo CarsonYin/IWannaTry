@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 9199311978945893185}
   - component: {fileID: 9199311978945893184}
   - component: {fileID: 9199311978945893191}
-  - component: {fileID: 2361876740832525412}
   m_Layer: 0
-  m_Name: leftBullet
+  m_Name: LeftBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,14 +110,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &9199311978945893191
 MonoBehaviour:
@@ -133,16 +132,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: -10, y: 0}
---- !u!114 &2361876740832525412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9199311978945893190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceaf00895875c45c7a5b3ea5bdf5795e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 1.5
+  delay: 3

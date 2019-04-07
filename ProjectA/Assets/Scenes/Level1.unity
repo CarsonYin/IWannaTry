@@ -6917,6 +6917,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: rightFirePos
       objectReference: {fileID: 0}
+    - target: {fileID: 5141675500697022169, guid: bd56c9cece8f04e4b9fe91a511ffda2c,
+        type: 3}
+      propertyPath: rightFirePos
+      value: 
+      objectReference: {fileID: 1642824113}
+    - target: {fileID: 5141675500697022169, guid: bd56c9cece8f04e4b9fe91a511ffda2c,
+        type: 3}
+      propertyPath: leftFirePos
+      value: 
+      objectReference: {fileID: 86629200}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd56c9cece8f04e4b9fe91a511ffda2c, type: 3}
 --- !u!4 &1318986646 stripped
@@ -8843,6 +8853,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4936607360881246, guid: 05ad1940a9d8bda48aa1c62327641023,
     type: 3}
   m_PrefabInstance: {fileID: 1640613677}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1642824113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5101726307835966862, guid: bd56c9cece8f04e4b9fe91a511ffda2c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1318986645}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1643500352
 PrefabInstance:

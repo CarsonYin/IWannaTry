@@ -7,9 +7,12 @@ public class PlayerControl : MonoBehaviour
 {
     //define bullet and 判断方向
     public bool isFacingRight;
-    public GameObject rightFirePos, leftFirePos;
-    public GameObject leftBullet, rightBullet;
-    
+    public GameObject rightFirePos;
+    public GameObject leftFirePos;
+
+    private GameObject leftBullet;
+    private GameObject rightBullet;
+
 
     public bool OnTheFloor;
     //public bool jumped;
@@ -35,7 +38,7 @@ public class PlayerControl : MonoBehaviour
     public int shieldFragmentNeeded;
     public int shieldFragmentNumber;
     public float shieldRemainTime;
-   
+
     [SerializeField]
     private float shieldTimer;
 
@@ -81,6 +84,11 @@ public class PlayerControl : MonoBehaviour
         shield.enabled = false;
 
         isFacingRight = true;
+
+
+        rightBullet = Resources.Load<GameObject>("Prefabs/RightBullet");
+        leftBullet = Resources.Load<GameObject>("Prefabs/LeftBullet");
+
 
     }
 
@@ -252,9 +260,6 @@ public class PlayerControl : MonoBehaviour
             else
             {
                 SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
-
-
-
             }
 
         }
@@ -329,11 +334,11 @@ public class PlayerControl : MonoBehaviour
     //fire method
     void Fire()
     {
-        if(isFacingRight)
+        if (isFacingRight)
         {
             Instantiate(rightBullet, rightFirePos.transform.position, rightBullet.transform.rotation);
         }
-        if(!isFacingRight)
+        else
         {
             Instantiate(leftBullet, leftFirePos.transform.position, leftBullet.transform.rotation);
         }
