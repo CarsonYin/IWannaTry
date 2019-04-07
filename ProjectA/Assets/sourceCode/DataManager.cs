@@ -51,7 +51,7 @@ public class DataManager : MonoBehaviour
 
     public void RespawnSettings()
     {
-        GameObject player = GameObject.Find("Player").gameObject;
+        GameObject player = GameObject.Find("Playertest").gameObject;
         GameObject sceneManager = GameObject.Find("CurrentSceneManager").gameObject;
         sceneManager.GetComponent<CurrentSceneManager>().currentSavePoint = currentSavePoint;
         if (currentSavePoint > -1)

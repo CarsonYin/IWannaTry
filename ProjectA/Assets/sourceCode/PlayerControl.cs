@@ -32,10 +32,16 @@ public class PlayerControl : MonoBehaviour
     public int shieldFragmentNeeded;
     public int shieldFragmentNumber;
     public float shieldRemainTime;
+   
     [SerializeField]
     private float shieldTimer;
 
     private SpriteRenderer shield;
+
+    //define bullet and 判断方向
+    public bool isFacingRight;
+    public GameObject leftBullet, rightBullet;
+    Transform firePos;
 
     void Awake()
     {
@@ -76,6 +82,7 @@ public class PlayerControl : MonoBehaviour
         shield = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         shield.enabled = false;
 
+        firePos = transform.FindChild("firePos");
 
     }
 
@@ -112,12 +119,15 @@ public class PlayerControl : MonoBehaviour
 
         // end items
 
+        //player's move
         // Right
         if (Input.GetKey(KeyCode.D))
         {
             //transform.position += new Vector3(0.5f, 0, 0);
             rigit.velocity = new Vector2(MoveSpeed, rigit.velocity.y);
             spRdr.sprite = PlayerRight;
+            //
+            isFacingRight = true;
         }
         // Left
         else if (Input.GetKey(KeyCode.A))
@@ -125,6 +135,8 @@ public class PlayerControl : MonoBehaviour
             // transform.position -= new Vector3(0.5f, 0, 0);
             rigit.velocity = new Vector2(-MoveSpeed, rigit.velocity.y);
             spRdr.sprite = PlayerLeft;
+            //
+            isFacingRight = false;
         }
         else
         {
@@ -210,6 +222,12 @@ public class PlayerControl : MonoBehaviour
                 }
             }
             OnTheFloor = false;
+
+            //press K button for shooting
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                Fire();
+            }
 
         }
 
@@ -308,6 +326,20 @@ public class PlayerControl : MonoBehaviour
             DoubleJumped = false;
             //DoubleJumping = false;
         }
+    }
+
+    //fire method
+    void Fire()
+    {
+        if(isFacingRight)
+        {
+            Instantiate(rightBullet, firePos.position, Quaternion.identity);
+        }
+        if(!isFacingRight)
+        {
+            Instantiate(leftBullet, firePos.position, Quaternion.identity);
+        }
+
     }
 
     void SaveData()
