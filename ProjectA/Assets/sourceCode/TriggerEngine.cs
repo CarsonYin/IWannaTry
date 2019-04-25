@@ -19,27 +19,27 @@ public class TriggerEngine : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (alreadyActiv)
+            if (!alreadyActiv)
             {
                 if (!isDisposable)
                 {
                     for (int i = 0; i < Partners.Count; i++)
                     {
+                        Partners[i].GetComponent<TrapEngine>().Reset();
                         Partners[i].GetComponent<TrapEngine>().React();
-
                     }
 
                 }
-            }
-            else
-            {
-                for (int i = 0; i < Partners.Count; i++)
-                {
-                    Partners[i].GetComponent<TrapEngine>().React();
 
+                else
+                {
+                    for (int i = 0; i < Partners.Count; i++)
+                    {
+                        Partners[i].GetComponent<TrapEngine>().React();
+                    }
+                    // Partner.GetComponent<TrapReact>().React();
+                    alreadyActiv = true;
                 }
-                // Partner.GetComponent<TrapReact>().React();
-                alreadyActiv = true;
             }
         }
     }

@@ -17,10 +17,12 @@ public class DataManager : MonoBehaviour
 
     public enum LevelNames
     {
-        Level1 = 1,
-        Level2 = 2
-    }
+        StartPage = 0,
+        Test = 1,
+        Level1 = 2,
+        Level2 = 3
 
+    }
 
     void Awake()
     {
@@ -37,27 +39,44 @@ public class DataManager : MonoBehaviour
 
     void Start()
     {
+        DataManager.Instance.currentLevel = LevelNames.Test;
 
-        SceneManager.LoadScene(currentLevel.ToString());
+        SceneManager.LoadScene(LevelNames.StartPage.ToString());
+
         currentSavePoint = -1;  // Means Did not reach any savepoint at current level
+        
+    }
+
+    public void StartGame()
+    {
+        //currentLevel = (LevelNames)levelChosen;
+        SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void ChangeLevel(int level)
+    {
+        DataManager.Instance.currentLevel = (LevelNames)(level + 1);
 
     }
 
     public void ChangeSavePoint(int number)
     {
         currentSavePoint = number;
-
     }
 
     public void RespawnSettings()
     {
-        GameObject player = GameObject.Find("Playertest").gameObject;
+        GameObject player = GameObject.Find("Player").gameObject;
         GameObject sceneManager = GameObject.Find("CurrentSceneManager").gameObject;
         sceneManager.GetComponent<CurrentSceneManager>().currentSavePoint = currentSavePoint;
         if (currentSavePoint > -1)
         {
             player.transform.position = sceneManager.transform.GetChild(currentSavePoint).position;
-
         }
         player.gameObject.GetComponent<PlayerControl>().haveShield = haveShield;
         player.gameObject.GetComponent<PlayerControl>().shieldFragmentNumber = shieldFragmentNumber;
