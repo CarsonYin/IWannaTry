@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DataManager : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class DataManager : MonoBehaviour
     public bool haveShield;
     public int shieldFragmentNumber;
     // Ends Player info
+
+    public Dropdown dropdown;
+
 
     public enum LevelNames
     {
@@ -39,12 +43,14 @@ public class DataManager : MonoBehaviour
 
     void Start()
     {
-        DataManager.Instance.currentLevel = LevelNames.Test;
-
         SceneManager.LoadScene(LevelNames.StartPage.ToString());
 
-        currentSavePoint = -1;  // Means Did not reach any savepoint at current level
-        
+        //dropdown = GameObject.Find("Cavans").transform.GetChild(0).gameObject.GetComponent<Dropdown>();
+
+        DataManager.Instance.currentLevel = LevelNames.Test;
+
+        DataManager.Instance.currentSavePoint = -1;  // Means Did not reach any savepoint at current level
+
     }
 
     public void StartGame()
@@ -66,19 +72,25 @@ public class DataManager : MonoBehaviour
 
     public void ChangeSavePoint(int number)
     {
-        currentSavePoint = number;
+        DataManager.Instance.currentSavePoint = number;
     }
 
     public void RespawnSettings()
     {
         GameObject player = GameObject.Find("Player").gameObject;
         GameObject sceneManager = GameObject.Find("CurrentSceneManager").gameObject;
-        sceneManager.GetComponent<CurrentSceneManager>().currentSavePoint = currentSavePoint;
-        if (currentSavePoint > -1)
+        sceneManager.GetComponent<CurrentSceneManager>().currentSavePoint = DataManager.Instance.currentSavePoint;
+        if (DataManager.Instance.currentSavePoint > -1)
         {
-            player.transform.position = sceneManager.transform.GetChild(currentSavePoint).position;
+            player.transform.position = sceneManager.transform.GetChild(DataManager.Instance.currentSavePoint).position;
         }
-        player.gameObject.GetComponent<PlayerControl>().haveShield = haveShield;
-        player.gameObject.GetComponent<PlayerControl>().shieldFragmentNumber = shieldFragmentNumber;
+        player.gameObject.GetComponent<PlayerControl>().haveShield = DataManager.Instance.haveShield;
+        player.gameObject.GetComponent<PlayerControl>().shieldFragmentNumber = DataManager.Instance.shieldFragmentNumber;
     }
+
+    //public void BackToMenu() {
+    //  //  GameObject.Find("Cavans").transform.GetChild(0).gameObject.GetComponent<Dropdown>().value = (int)DataManager.Instance.currentLevel - 1;
+
+    //}
+
 }
