@@ -6,6 +6,15 @@ public class TrapEngine : MonoBehaviour
 {
     [SerializeField]
 
+    public bool isSelfRepeating;
+    //private bool alreadyReset;
+
+    public bool startMove;
+    public bool startScale;
+    public bool startRotate;
+    public bool startSelfRotate;
+
+    public bool startTimer;
 
     public float timer;
 
@@ -51,12 +60,9 @@ public class TrapEngine : MonoBehaviour
 
 
 
-    private bool startMove;
-    private bool startScale;
-    private bool startRotate;
-    private bool startSelfRotate;
 
-    private bool startTimer;
+
+
 
     void Awake()
     {
@@ -84,9 +90,19 @@ public class TrapEngine : MonoBehaviour
         startTimer = true;
     }
 
-    public void Reset()
+    public void Reset(bool isSelfRepeating)
     {
-        startTimer = false;
+
+        if (isSelfRepeating)
+        {
+            startTimer = true;
+        }
+        else
+        {
+            startTimer = false;
+
+        }
+
         timer = 0;
         moveIndex = 0;
         scaleIndex = 0;
@@ -95,14 +111,15 @@ public class TrapEngine : MonoBehaviour
         transform.position = initialPosition;
         transform.localScale = initialScale;
         transform.rotation = initialSelfRotation;
+
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (startTimer)
         {
-            timer += Time.deltaTime;
+            timer += Time.fixedDeltaTime;
         }
 
         //Move
@@ -112,7 +129,7 @@ public class TrapEngine : MonoBehaviour
             {
                 if (timer >= moveSleepTime[moveIndex] && timer < moveSleepTime[moveIndex] + moveDuration[moveIndex])
                 {
-                    transform.position += velocity[moveIndex] * Time.deltaTime;
+                    transform.position += velocity[moveIndex] * Time.fixedDeltaTime;
                 }
                 else if (timer >= moveSleepTime[moveIndex] + moveDuration[moveIndex])
                 {
@@ -122,7 +139,14 @@ public class TrapEngine : MonoBehaviour
                     }
                     else
                     {
-                        startMove = false;
+                        if (isSelfRepeating)
+                        {
+                            Reset(isSelfRepeating);
+                        }
+                        else
+                        {
+                            startMove = false;
+                        }
                     }
                 }
             }
@@ -134,7 +158,7 @@ public class TrapEngine : MonoBehaviour
             {
                 if (timer >= scaleSleepTime[scaleIndex] && timer < scaleSleepTime[scaleIndex] + scaleDuration[scaleIndex])
                 {
-                    transform.localScale += scaleSpeed[scaleIndex] * Time.deltaTime;
+                    transform.localScale += scaleSpeed[scaleIndex] * Time.fixedDeltaTime;
                 }
                 else if (timer >= scaleSleepTime[scaleIndex] + scaleDuration[scaleIndex])
                 {
@@ -144,7 +168,14 @@ public class TrapEngine : MonoBehaviour
                     }
                     else
                     {
-                        startScale = false;
+                        if (isSelfRepeating)
+                        {
+                            Reset(isSelfRepeating);
+                        }
+                        else
+                        {
+                            startScale = false;
+                        }
                     }
                 }
             }
@@ -157,7 +188,7 @@ public class TrapEngine : MonoBehaviour
                 if (timer >= rotateSleepTime[rotateIndex] && timer < rotateSleepTime[rotateIndex] + rotateDuration[rotateIndex])
                 {
                     //  transform.localScale += scaleSpeed[scaleIndex];
-                    transform.RotateAround(rotateCenterPoint[rotateIndex],Vector3.forward, rotateSpeed[rotateIndex] * Time.deltaTime);
+                    transform.RotateAround(rotateCenterPoint[rotateIndex], Vector3.forward, rotateSpeed[rotateIndex] * Time.fixedDeltaTime);
                 }
                 else if (timer >= rotateSleepTime[rotateIndex] + rotateDuration[rotateIndex])
                 {
@@ -167,7 +198,14 @@ public class TrapEngine : MonoBehaviour
                     }
                     else
                     {
-                        startRotate = false;
+                        if (isSelfRepeating)
+                        {
+                            Reset(isSelfRepeating);
+                        }
+                        else
+                        {
+                            startRotate = false;
+                        }
                     }
                 }
             }
@@ -180,7 +218,7 @@ public class TrapEngine : MonoBehaviour
                 if (timer >= selfRotateSleepTime[selfRotateIndex] && timer < selfRotateSleepTime[selfRotateIndex] + selfRotateDuration[selfRotateIndex])
                 {
                     //  transform.localScale += scaleSpeed[scaleIndex];
-                    transform.Rotate(0, 0, selfRotateSpeed[selfRotateIndex] * Time.deltaTime);
+                    transform.Rotate(0, 0, selfRotateSpeed[selfRotateIndex] * Time.fixedDeltaTime);
                 }
                 else if (timer >= selfRotateSleepTime[selfRotateIndex] + selfRotateDuration[selfRotateIndex])
                 {
@@ -190,7 +228,14 @@ public class TrapEngine : MonoBehaviour
                     }
                     else
                     {
-                        startSelfRotate = false;
+                        if (isSelfRepeating)
+                        {
+                            Reset(isSelfRepeating);
+                        }
+                        else
+                        {
+                            startSelfRotate = false;
+                        }
                     }
                 }
             }

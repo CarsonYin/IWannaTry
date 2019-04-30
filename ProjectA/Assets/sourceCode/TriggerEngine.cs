@@ -25,7 +25,7 @@ public class TriggerEngine : MonoBehaviour
                 {
                     for (int i = 0; i < Partners.Count; i++)
                     {
-                        Partners[i].GetComponent<TrapEngine>().Reset();
+                        Partners[i].GetComponent<TrapEngine>().Reset(false);
                         Partners[i].GetComponent<TrapEngine>().React();
                     }
 

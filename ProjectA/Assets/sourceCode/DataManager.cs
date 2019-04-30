@@ -14,6 +14,9 @@ public class DataManager : MonoBehaviour
     public int currentSavePoint;
     public bool haveShield;
     public int shieldFragmentNumber;
+
+    public int deathCount;
+
     // Ends Player info
 
     public Dropdown dropdown;
@@ -24,8 +27,8 @@ public class DataManager : MonoBehaviour
         StartPage = 0,
         Test = 1,
         Level1 = 2,
-        Level2 = 3
-
+        Level2 = 3,
+        LevelX = 4
     }
 
     void Awake()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerControl : MonoBehaviour
 
     private GameObject leftBullet;
     private GameObject rightBullet;
+
+    public GameObject Canvas;
 
 
     public bool OnTheFloor;
@@ -38,6 +41,9 @@ public class PlayerControl : MonoBehaviour
     public int shieldFragmentNeeded;
     public int shieldFragmentNumber;
     public float shieldRemainTime;
+
+    public bool isDead;
+    public int colorChangeTimer;
 
     [SerializeField]
     private float shieldTimer;
@@ -92,15 +98,42 @@ public class PlayerControl : MonoBehaviour
 
     }
 
+    //private void FixedUpdate()
+    //{
+
+
+    //}
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("StartPage");
-           // DataManager.Instance.BackToMenu();
+            // DataManager.Instance.BackToMenu();
 
         }
+
+        Canvas.transform.GetChild(3).GetComponent<Text>().text = DataManager.Instance.deathCount.ToString();
+
+        if (isDead)
+        {
+
+            if (colorChangeTimer < 255)
+            {
+                Canvas.transform.GetChild(0).GetComponent<Image>().color = new Color(0, 0, 0, colorChangeTimer / 256f);
+                Canvas.transform.GetChild(1).GetComponent<Text>().color = new Color(1, 0, 0, colorChangeTimer / 128f);
+                Canvas.transform.GetChild(2).GetComponent<Text>().color = new Color(1, 0, 0, colorChangeTimer / 128f);
+                colorChangeTimer++;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
+            }
+
+        }
+
 
 
 
@@ -267,7 +300,13 @@ public class PlayerControl : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
+                Time.timeScale = 0.05f;
+                if (!isDead)
+                {
+                    DataManager.Instance.deathCount++;
+                }
+                isDead = true;
+                //SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
             }
 
         }
@@ -291,7 +330,13 @@ public class PlayerControl : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
+                Time.timeScale = 0.05f;
+                if (!isDead)
+                {
+                    DataManager.Instance.deathCount++;
+                }
+                isDead = true;
+                //SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
 
 
 
@@ -308,7 +353,6 @@ public class PlayerControl : MonoBehaviour
         else if (other.gameObject.tag == "SavePoint")
         {
             SaveData();
-
 
             // other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 

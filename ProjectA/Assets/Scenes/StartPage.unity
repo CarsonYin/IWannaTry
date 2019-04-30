@@ -459,6 +459,8 @@ MonoBehaviour:
       m_Image: {fileID: 21300000, guid: 98b9a01a83961c940aa86471ef17509d, type: 3}
     - m_Text: Level 2
       m_Image: {fileID: 21300000, guid: 98b9a01a83961c940aa86471ef17509d, type: 3}
+    - m_Text: Level X
+      m_Image: {fileID: 21300000, guid: 98b9a01a83961c940aa86471ef17509d, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:

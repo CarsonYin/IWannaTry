@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9199311978945893187}
   - component: {fileID: 9199311978945893186}
-  - component: {fileID: 9199311978945893185}
   - component: {fileID: 9199311978945893184}
   - component: {fileID: 9199311978945893191}
+  - component: {fileID: 4491125030164189636}
   m_Layer: 0
   m_Name: LeftBullet
   m_TagString: Untagged
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 53a28e6d1a092426c818c45ab2321583, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5fc0093c7d8b449da9cb8d279ff1b6d3, type: 3}
   m_Color: {r: 0.735849, g: 0.6907262, b: 0.6907262, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -82,22 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &9199311978945893185
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9199311978945893190}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.49999997
 --- !u!50 &9199311978945893184
 Rigidbody2D:
   serializedVersion: 4
@@ -132,4 +116,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: -10, y: 0}
-  delay: 3
+  delay: 8
+--- !u!70 &4491125030164189636
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9199311978945893190}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.9, y: 0}
+  m_Size: {x: 1.7, y: 0.7}
+  m_Direction: 1
