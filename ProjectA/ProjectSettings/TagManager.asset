@@ -10,6 +10,9 @@ TagManager:
   - LevelGate
   - SavePoint
   - ShieldFrag
+  - Ceiling
+  - VerPlatGround
+  - VerPlatCeiling
   layers:
   - Default
   - TransparentFX

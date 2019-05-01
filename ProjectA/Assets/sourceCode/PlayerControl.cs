@@ -45,10 +45,17 @@ public class PlayerControl : MonoBehaviour
     public bool isDead;
     public int colorChangeTimer;
 
+    public bool isOnVerPlatform;
+    public bool isBelowVerPlatform;
+
+
     [SerializeField]
     private float shieldTimer;
 
     private SpriteRenderer shield;
+
+
+
 
     void Awake()
     {
@@ -274,6 +281,8 @@ public class PlayerControl : MonoBehaviour
                 }
             }
             OnTheFloor = false;
+            isOnVerPlatform = false;
+            isBelowVerPlatform = false;
 
 
         }
@@ -300,12 +309,15 @@ public class PlayerControl : MonoBehaviour
             }
             else
             {
-                Time.timeScale = 0.05f;
-                if (!isDead)
-                {
-                    DataManager.Instance.deathCount++;
-                }
-                isDead = true;
+                //Time.timeScale = 0.05f;
+                Dead();
+
+                //if (!isDead)
+                //{
+                //    DataManager.Instance.deathCount++;
+                //}
+                //isDead = true;
+
                 //SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
             }
 
@@ -330,12 +342,15 @@ public class PlayerControl : MonoBehaviour
             }
             else
             {
-                Time.timeScale = 0.05f;
-                if (!isDead)
-                {
-                    DataManager.Instance.deathCount++;
-                }
-                isDead = true;
+                //Time.timeScale = 0.05f;
+                Dead();
+
+                //if (!isDead)
+                //{
+                //    DataManager.Instance.deathCount++;
+                //}
+                //isDead = true;
+
                 //SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
 
 
@@ -380,7 +395,31 @@ public class PlayerControl : MonoBehaviour
             OnTheFloor = true;
             DoubleJumped = false;
             //DoubleJumping = false;
+            if (isBelowVerPlatform)
+            {
+                Dead();
+            }
         }
+        if (other.gameObject.tag == "VerPlatGround")
+        {
+            isOnVerPlatform = true;
+        }
+        if (other.gameObject.tag == "VerPlatCeiling")
+        {
+            isBelowVerPlatform = true;
+        }
+        if (other.gameObject.tag == "Ceiling")
+        {
+            if (isOnVerPlatform)
+            {
+                Dead();
+            }
+        }
+
+        Debug.Log(other.gameObject.tag);
+
+
+
     }
 
     //fire method
@@ -402,5 +441,16 @@ public class PlayerControl : MonoBehaviour
         DataManager.Instance.haveShield = haveShield;
         DataManager.Instance.shieldFragmentNumber = shieldFragmentNumber;
     }
+
+    void Dead()
+    {
+        if (!isDead)
+        {
+            DataManager.Instance.deathCount++;
+            Time.timeScale = 0.05f;
+        }
+        isDead = true;
+    }
+
 
 }
