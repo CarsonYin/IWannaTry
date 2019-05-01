@@ -28,7 +28,8 @@ public class DataManager : MonoBehaviour
         Test = 1,
         Level1 = 2,
         Level2 = 3,
-        LevelX = 4
+        LevelX = 4,
+        Level3 = 5
     }
 
     void Awake()
