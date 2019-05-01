@@ -356,3 +356,7 @@
 /Users/carson/git/IWannaTry/ProjectA/obj/Debug/Assembly-CSharp.csproj.CopyComplete
 /Users/carson/git/IWannaTry/ProjectA/obj/Debug/Assembly-CSharp.dll
 /Users/carson/git/IWannaTry/ProjectA/obj/Debug/Assembly-CSharp.pdb
+C:\Users\User\Documents\GitHub\IWannaTry\ProjectA\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\User\Documents\GitHub\IWannaTry\ProjectA\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\IWannaTry\ProjectA\obj\Debug\Assembly-CSharp.dll
+C:\Users\User\Documents\GitHub\IWannaTry\ProjectA\obj\Debug\Assembly-CSharp.pdb

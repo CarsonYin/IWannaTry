@@ -452,17 +452,7 @@ MonoBehaviour:
   m_ItemImage: {fileID: 0}
   m_Value: 0
   m_Options:
-    m_Options:
-    - m_Text: Test Level
-      m_Image: {fileID: 21300000, guid: 98b9a01a83961c940aa86471ef17509d, type: 3}
-    - m_Text: Level 1
-      m_Image: {fileID: 21300000, guid: 98b9a01a83961c940aa86471ef17509d, type: 3}
-    - m_Text: Level 2
-      m_Image: {fileID: 21300000, guid: 98b9a01a83961c940aa86471ef17509d, type: 3}
-    - m_Text: Level X
-      m_Image: {fileID: 21300000, guid: 98b9a01a83961c940aa86471ef17509d, type: 3}
-    - m_Text: Level 3
-      m_Image: {fileID: 21300000, guid: 98b9a01a83961c940aa86471ef17509d, type: 3}
+    m_Options: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -661,7 +651,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Test Level
+  m_Text: 
 --- !u!222 &886536110
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1365,7 +1355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc91a9a0bcc966d4a839c490496a48de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dropdpwn: {fileID: 580589878}
+  dropdown: {fileID: 580589878}
 --- !u!4 &1439869081
 Transform:
   m_ObjectHideFlags: 0

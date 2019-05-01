@@ -21,15 +21,24 @@ public class DataManager : MonoBehaviour
 
     public Dropdown dropdown;
 
+    public StartOptions startOptions;
+
 
     public enum LevelNames
     {
         StartPage = 0,
-        Test = 1,
+        Level0 = 1,
         Level1 = 2,
-        Level2 = 3,
-        LevelX = 4,
-        Level3 = 5
+        OldLevel1 = 3,
+        OldLevel2 = 4,
+        Test = 5,
+        
+    }
+
+    public enum StartOptions
+    {
+        NewGame = 0,
+        Respawn = 1,
     }
 
     void Awake()
@@ -55,11 +64,15 @@ public class DataManager : MonoBehaviour
 
         DataManager.Instance.currentSavePoint = -1;  // Means Did not reach any savepoint at current level
 
+
+
+
     }
 
     public void StartGame()
     {
         //currentLevel = (LevelNames)levelChosen;
+        DataManager.Instance.startOptions = StartOptions.NewGame;
         SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
     }
 
@@ -79,17 +92,40 @@ public class DataManager : MonoBehaviour
         DataManager.Instance.currentSavePoint = number;
     }
 
-    public void RespawnSettings()
+    public void ResetLevel()
+    {
+        DataManager.Instance.currentSavePoint = -1;
+        DataManager.Instance.haveShield = false;
+        DataManager.Instance.shieldFragmentNumber = 0;
+    }
+
+    // startOptions = 0  ----  New Game
+    // startOptions = 1  ----  Respawn
+    public void RespawnSettings(StartOptions startOptions)
     {
         GameObject player = GameObject.Find("Player").gameObject;
         GameObject sceneManager = GameObject.Find("CurrentSceneManager").gameObject;
-        sceneManager.GetComponent<CurrentSceneManager>().currentSavePoint = DataManager.Instance.currentSavePoint;
-        if (DataManager.Instance.currentSavePoint > -1)
+        Debug.Log(startOptions.ToString());
+        switch (startOptions)
         {
-            player.transform.position = sceneManager.transform.GetChild(DataManager.Instance.currentSavePoint).position;
+
+
+            case StartOptions.NewGame:
+                ResetLevel();
+                break;
+            case StartOptions.Respawn:
+                sceneManager.GetComponent<CurrentSceneManager>().currentSavePoint = DataManager.Instance.currentSavePoint;
+                if (DataManager.Instance.currentSavePoint > -1)
+                {
+                    player.transform.position = sceneManager.transform.GetChild(DataManager.Instance.currentSavePoint).position;
+                }
+                player.gameObject.GetComponent<PlayerControl>().haveShield = DataManager.Instance.haveShield;
+                player.gameObject.GetComponent<PlayerControl>().shieldFragmentNumber = DataManager.Instance.shieldFragmentNumber;
+                break;
+            default:
+                sceneManager.GetComponent<CurrentSceneManager>().currentSavePoint = -1;
+                break;
         }
-        player.gameObject.GetComponent<PlayerControl>().haveShield = DataManager.Instance.haveShield;
-        player.gameObject.GetComponent<PlayerControl>().shieldFragmentNumber = DataManager.Instance.shieldFragmentNumber;
     }
 
     //public void BackToMenu() {

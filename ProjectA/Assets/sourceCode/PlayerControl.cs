@@ -90,7 +90,7 @@ public class PlayerControl : MonoBehaviour
         DoubleJumped = false;
 
         // Respawn Settings
-        DataManager.Instance.RespawnSettings();
+        DataManager.Instance.RespawnSettings(DataManager.Instance.startOptions);
         // Respawn Settings Ends
 
         shield = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
@@ -122,6 +122,8 @@ public class PlayerControl : MonoBehaviour
         }
 
         Canvas.transform.GetChild(3).GetComponent<Text>().text = DataManager.Instance.deathCount.ToString();
+        Canvas.transform.GetChild(5).GetComponent<Text>().text = shieldFragmentNumber.ToString();
+        Canvas.transform.GetChild(6).GetComponent<Text>().text = shieldFragmentNeeded.ToString();
 
         if (isDead)
         {
@@ -136,6 +138,7 @@ public class PlayerControl : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                DataManager.Instance.startOptions = DataManager.StartOptions.Respawn;
                 SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
             }
 
@@ -148,7 +151,7 @@ public class PlayerControl : MonoBehaviour
         // shield
         if (shieldFragmentNumber >= shieldFragmentNeeded)
         {
-            shieldFragmentNumber = 0;
+            //shieldFragmentNumber = 0;
             haveShield = true;
         }
 
@@ -289,7 +292,7 @@ public class PlayerControl : MonoBehaviour
 
         // player.transform.Translate()
         //  player.rigit.AddForce(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
-        //press K button for shooting
+        //pss K button for shooting
 
     }
     void OnTriggerStay2D(Collider2D other)
@@ -300,6 +303,7 @@ public class PlayerControl : MonoBehaviour
             {
                 shieldOn = true;
                 haveShield = false;
+                shieldFragmentNumber = 0;
 
                 shield.enabled = true;
             }
@@ -415,8 +419,7 @@ public class PlayerControl : MonoBehaviour
                 Dead();
             }
         }
-
-        Debug.Log(other.gameObject.tag);
+        
 
 
 

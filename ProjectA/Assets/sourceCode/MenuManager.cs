@@ -5,12 +5,25 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    public GameObject Dropdpwn;
+    public GameObject dropdown;
+    private Dropdown dp;
 
     // Start is called before the first frame update
     void Start()
     {
-        Dropdpwn.GetComponent<Dropdown>().value = (int)DataManager.Instance.currentLevel - 1;
+
+        dp = dropdown.GetComponent<Dropdown>();
+        foreach (DataManager.LevelNames e in System.Enum.GetValues(typeof(DataManager.LevelNames)))
+        {
+            Dropdown.OptionData data = new Dropdown.OptionData();
+            data.text = e.ToString();
+            dp.options.Add(data);
+        }
+        dp.options.RemoveAt(0);
+
+
+
+        dp.value = (int)DataManager.Instance.currentLevel - 1;
     }
 
 }
