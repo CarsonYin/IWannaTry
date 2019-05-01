@@ -29,16 +29,18 @@ public class DataManager : MonoBehaviour
         StartPage = 0,
         Level0 = 1,
         Level1 = 2,
-        OldLevel1 = 3,
-        OldLevel2 = 4,
-        Test = 5,
-        
+        Level2 = 3,
+        OldLevel1 = 4,
+        OldLevel2 = 5,
+        Test = 6,
+
     }
 
     public enum StartOptions
     {
         NewGame = 0,
         Respawn = 1,
+        NextLevel = 2
     }
 
     void Awake()
@@ -119,6 +121,11 @@ public class DataManager : MonoBehaviour
                 {
                     player.transform.position = sceneManager.transform.GetChild(DataManager.Instance.currentSavePoint).position;
                 }
+                //player.gameObject.GetComponent<PlayerControl>().haveShield = DataManager.Instance.haveShield;
+                //player.gameObject.GetComponent<PlayerControl>().shieldFragmentNumber = DataManager.Instance.shieldFragmentNumber;
+                break;
+            case StartOptions.NextLevel:
+                Debug.Log(shieldFragmentNumber);
                 player.gameObject.GetComponent<PlayerControl>().haveShield = DataManager.Instance.haveShield;
                 player.gameObject.GetComponent<PlayerControl>().shieldFragmentNumber = DataManager.Instance.shieldFragmentNumber;
                 break;

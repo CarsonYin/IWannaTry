@@ -356,23 +356,20 @@ public class PlayerControl : MonoBehaviour
                 //isDead = true;
 
                 //SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
-
-
-
             }
 
         }
 
         else if (other.gameObject.tag == "LevelGate")
         {
+            SaveData();
+            DataManager.Instance.startOptions = DataManager.StartOptions.NextLevel;
             DataManager.Instance.currentLevel++;
             SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
             DataManager.Instance.currentSavePoint = -1;
         }
         else if (other.gameObject.tag == "SavePoint")
         {
-            SaveData();
-
             // other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
             //other.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("PNGs/SavePointHighLighted");
@@ -389,7 +386,19 @@ public class PlayerControl : MonoBehaviour
             shieldFragmentNumber++;
             Destroy(other.gameObject);
         }
+        else if (other.gameObject.tag == "RemoveRigitbody")
+        {
+            other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            Destroy(other.gameObject.GetComponent<Rigidbody2D>());
+        }
 
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Deadly")
+        {
+            Dead();
+        }
     }
 
     void OnCollisionStay2D(Collision2D other)
@@ -419,7 +428,7 @@ public class PlayerControl : MonoBehaviour
                 Dead();
             }
         }
-        
+
 
 
 

@@ -13,6 +13,8 @@ TagManager:
   - Ceiling
   - VerPlatGround
   - VerPlatCeiling
+  - Bullet
+  - RemoveRigitbody
   layers:
   - Default
   - TransparentFX

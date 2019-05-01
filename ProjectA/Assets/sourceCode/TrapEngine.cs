@@ -16,6 +16,19 @@ public class TrapEngine : MonoBehaviour
 
     public bool startTimer;
 
+    public bool canBeShoot;
+
+    public SpecialReact shootReact;
+
+    public enum SpecialReact
+    {
+        Destroy = 1,
+        Activiate = 2,
+        Special01 = 3,
+        Special02 = 4
+
+    }
+
     public float timer;
 
     [Header("【Move】")]
@@ -100,7 +113,6 @@ public class TrapEngine : MonoBehaviour
         else
         {
             startTimer = false;
-
         }
 
         timer = 0;
@@ -112,6 +124,35 @@ public class TrapEngine : MonoBehaviour
         transform.localScale = initialScale;
         transform.rotation = initialSelfRotation;
 
+    }
+
+    public void TriggerToUseGravity()
+    {
+        gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (canBeShoot)
+        {
+            if (collision.gameObject.tag == "Bullet")
+            {
+                switch (shootReact)
+                {
+                    case SpecialReact.Destroy:
+                        gameObject.SetActive(false);
+                        break;
+                    case SpecialReact.Activiate:
+                        React();
+                        break;
+                    case SpecialReact.Special01:
+                        gameObject.GetComponent<SpecialTR01>().S01React();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
     }
 
     // Update is called once per frame
@@ -240,8 +281,5 @@ public class TrapEngine : MonoBehaviour
                 }
             }
         }
-
-
-
     }
 }

@@ -109,7 +109,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.91, y: 1.91}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 1
 --- !u!50 &50482062436756980
 Rigidbody2D:
@@ -147,6 +147,7 @@ MonoBehaviour:
   isFacingRight: 0
   rightFirePos: {fileID: 7198784194586126574}
   leftFirePos: {fileID: 7499727207768707770}
+  Canvas: {fileID: 0}
   OnTheFloor: 0
   DoubleJumped: 0
   Jumping: 0
@@ -160,6 +161,10 @@ MonoBehaviour:
   shieldFragmentNeeded: 3
   shieldFragmentNumber: 0
   shieldRemainTime: 10
+  isDead: 0
+  colorChangeTimer: 0
+  isOnVerPlatform: 0
+  isBelowVerPlatform: 0
   shieldTimer: 0
 --- !u!1 &5023340813077071404
 GameObject:
