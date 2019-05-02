@@ -120,6 +120,13 @@ public class PlayerControl : MonoBehaviour
             // DataManager.Instance.BackToMenu();
 
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            DataManager.Instance.startOptions = DataManager.StartOptions.Respawn;
+            SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
+            DataManager.Instance.deathCount++;
+
+        }
 
         Canvas.transform.GetChild(3).GetComponent<Text>().text = DataManager.Instance.deathCount.ToString();
         Canvas.transform.GetChild(5).GetComponent<Text>().text = shieldFragmentNumber.ToString();
