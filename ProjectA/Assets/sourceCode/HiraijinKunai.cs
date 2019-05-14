@@ -23,15 +23,17 @@ public class HiraijinKunai : MonoBehaviour
         Ver = 0,
         Right = 1,
         Left = 2
-
     }
-
 
     private void Awake()
     {
         //if (direction == HiraijinType.Ver)
         //{
+
         rigit = gameObject.GetComponent<Rigidbody2D>();
+
+
+
         // }
     }
 
@@ -44,6 +46,12 @@ public class HiraijinKunai : MonoBehaviour
 
     private void OnEnable()
     {
+        //if (!rigit)
+        //{
+        //    gameObject.AddComponent<Rigidbody2D>();
+        //    rigit = gameObject.GetComponent<Rigidbody2D>();
+        //}
+
         timer = 0;
         hadStopped = false;
         hadTimeOut = false;
@@ -136,9 +144,10 @@ public class HiraijinKunai : MonoBehaviour
             if (collision.gameObject.tag == "Wall")
             {
                 gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+                transform.SetParent(collision.transform);
+                //Destroy(rigit);
                 rigit.constraints = RigidbodyConstraints2D.FreezeAll;
                 hadStopped = true;
-                transform.SetParent(collision.transform);
             }
         }
     }

@@ -289,6 +289,7 @@ public class PlayerControl : MonoBehaviour
                             hiraijinKunai.SetActive(false);
                             canPlaceHiraijin = true;
                             hadPlacedHiraijin = false;
+                            OnTheFloor = false;
                         }
                         else if (hiraijinKunaiLeft && hiraijinKunaiLeft.activeSelf)
                         {
@@ -296,6 +297,7 @@ public class PlayerControl : MonoBehaviour
                             hiraijinKunaiLeft.SetActive(false);
                             canPlaceHiraijin = true;
                             hadPlacedHiraijin = false;
+                            OnTheFloor = false;
                         }
                     }
                     else if (Input.GetKeyDown(KeyCode.I))
@@ -306,6 +308,7 @@ public class PlayerControl : MonoBehaviour
                             hiraijinKunaiVer.SetActive(false);
                             canPlaceHiraijin = true;
                             hadPlacedHiraijin = false;
+                            OnTheFloor = false;
                         }
                     }
 
