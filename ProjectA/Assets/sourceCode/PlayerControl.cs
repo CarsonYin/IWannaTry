@@ -48,9 +48,20 @@ public class PlayerControl : MonoBehaviour
     public bool isOnVerPlatform;
     public bool isBelowVerPlatform;
 
+    [SerializeField]
+    private GameObject hiraijinKunai;
+    [SerializeField]
+    private GameObject hiraijinKunaiLeft;
+    [SerializeField]
+    private GameObject hiraijinKunaiVer;
 
     [SerializeField]
     private float shieldTimer;
+
+    [SerializeField]
+    private bool hadPlacedHiraijin;
+    private bool canPlaceHiraijin;
+
 
     private SpriteRenderer shield;
 
@@ -102,6 +113,10 @@ public class PlayerControl : MonoBehaviour
         rightBullet = Resources.Load<GameObject>("Prefabs/RightBullet");
         leftBullet = Resources.Load<GameObject>("Prefabs/LeftBullet");
 
+        if (true)
+        {
+            canPlaceHiraijin = true;
+        }
 
     }
 
@@ -151,7 +166,179 @@ public class PlayerControl : MonoBehaviour
 
         }
 
+        //Hiraijin
 
+        if (true)
+        { // can use Hiraijin
+            if (hiraijinKunai && hiraijinKunai.activeSelf)
+            {
+                if (hiraijinKunai.GetComponent<HiraijinKunai>().hadTimeOut)
+                {
+                    hadPlacedHiraijin = false;
+                    canPlaceHiraijin = true;
+                }
+                else
+                {
+                    hadPlacedHiraijin = hiraijinKunai.GetComponent<HiraijinKunai>().hadStopped;
+                }
+            }
+
+            if (hiraijinKunaiLeft && hiraijinKunaiLeft.activeSelf)
+            {
+                if (hiraijinKunaiLeft.GetComponent<HiraijinKunai>().hadTimeOut)
+                {
+                    hadPlacedHiraijin = false;
+                    canPlaceHiraijin = true;
+                }
+                else
+                {
+                    hadPlacedHiraijin = hiraijinKunaiLeft.GetComponent<HiraijinKunai>().hadStopped;
+                }
+            }
+
+            if (hiraijinKunaiVer && hiraijinKunaiVer.activeSelf)
+            {
+                if (hiraijinKunaiVer.GetComponent<HiraijinKunai>().hadTimeOut)
+                {
+                    hadPlacedHiraijin = false;
+                    canPlaceHiraijin = true;
+                }
+                else
+                {
+                    hadPlacedHiraijin = hiraijinKunaiVer.GetComponent<HiraijinKunai>().hadStopped;
+                }
+            }
+
+            if (canPlaceHiraijin)
+            {
+                if (Input.GetKeyDown(KeyCode.U))
+                {
+
+                    if (isFacingRight)
+                    {
+                        canPlaceHiraijin = false;
+                        if (!hiraijinKunai)
+                        {
+                            hiraijinKunai = new GameObject();
+                            hiraijinKunai = Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/HiraijinKunai"));
+                            hiraijinKunai.GetComponent<HiraijinKunai>().direction = HiraijinKunai.HiraijinType.Right;
+                        }
+                        else
+                        {
+                            hiraijinKunai.SetActive(true);
+                        }
+
+                        hiraijinKunai.transform.position = transform.position + new Vector3(3.5f, 1.3f, 0);
+                    }
+
+                    else
+                    {
+                        canPlaceHiraijin = false;
+                        if (!hiraijinKunaiLeft)
+                        {
+                            hiraijinKunaiLeft = new GameObject();
+                            hiraijinKunaiLeft = Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/HiraijinKunaiLeft"));
+                            hiraijinKunaiLeft.GetComponent<HiraijinKunai>().direction = HiraijinKunai.HiraijinType.Left;
+                        }
+                        else
+                        {
+                            hiraijinKunaiLeft.SetActive(true);
+                        }
+
+                        hiraijinKunaiLeft.transform.position = transform.position + new Vector3(-3.5f, 1.3f, 0);
+                    }
+                    // Instantiate<GameObject>(hiraijinKunai);
+
+                }
+
+                else if (Input.GetKeyDown(KeyCode.I))
+                {
+                    canPlaceHiraijin = false;
+                    if (!hiraijinKunaiVer)
+                    {
+                        hiraijinKunaiVer = new GameObject();
+                        hiraijinKunaiVer = Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/HiraijinKunaiVer"));
+                        hiraijinKunaiVer.GetComponent<HiraijinKunai>().direction = HiraijinKunai.HiraijinType.Ver;
+                    }
+                    else
+                    {
+                        hiraijinKunaiVer.SetActive(true);
+                    }
+                    if (isFacingRight)
+                    {
+                        hiraijinKunaiVer.transform.position = transform.position + new Vector3(2.61f, 1.5f, 0);
+                    }
+                    else
+                    {
+                        hiraijinKunaiVer.transform.position = transform.position + new Vector3(-2.61f, 1.5f, 0);
+                    }
+                    //Instantiate<GameObject>(hiraijinKunai);
+                }
+
+            }
+            else
+            {
+                if (hadPlacedHiraijin)
+                {
+
+                    if (Input.GetKeyDown(KeyCode.U))
+                    {
+                        if (hiraijinKunai && hiraijinKunai.activeSelf)
+                        {
+                            transform.position = hiraijinKunai.transform.GetChild(0).transform.position;
+                            hiraijinKunai.SetActive(false);
+                            canPlaceHiraijin = true;
+                            hadPlacedHiraijin = false;
+                        }
+                        else if (hiraijinKunaiLeft && hiraijinKunaiLeft.activeSelf)
+                        {
+                            transform.position = hiraijinKunaiLeft.transform.GetChild(0).transform.position;
+                            hiraijinKunaiLeft.SetActive(false);
+                            canPlaceHiraijin = true;
+                            hadPlacedHiraijin = false;
+                        }
+                    }
+                    else if (Input.GetKeyDown(KeyCode.I))
+                    {
+                        if (hiraijinKunaiVer && hiraijinKunaiVer.activeSelf)
+                        {
+                            transform.position = hiraijinKunaiVer.transform.GetChild(0).transform.position;
+                            hiraijinKunaiVer.SetActive(false);
+                            canPlaceHiraijin = true;
+                            hadPlacedHiraijin = false;
+                        }
+                    }
+
+                    else if (Input.GetKeyDown(KeyCode.O))
+                    {
+                        if (hiraijinKunai)
+                        {
+                            hiraijinKunai.SetActive(false);
+                        }
+                        if (hiraijinKunaiLeft)
+                        {
+                            hiraijinKunaiLeft.SetActive(false);
+                        }
+                        if (hiraijinKunaiVer)
+                        {
+                            hiraijinKunaiVer.SetActive(false);
+                        }
+                        canPlaceHiraijin = true;
+                        hadPlacedHiraijin = false;
+                    }
+                }
+            }
+
+
+        }
+
+
+
+
+
+
+
+        //end Hiraijin
 
 
         // items
@@ -177,9 +364,6 @@ public class PlayerControl : MonoBehaviour
         }
 
         // end shield
-
-
-
 
         // end items
 

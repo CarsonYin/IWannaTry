@@ -89,7 +89,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8374173863448095560}
   - component: {fileID: 1561102548935459769}
-  - component: {fileID: 823086200105611207}
+  - component: {fileID: 7703870363591812508}
+  - component: {fileID: 4921858671180158114}
+  - component: {fileID: 7101837004657128849}
   m_Layer: 0
   m_Name: HiraijinKunai
   m_TagString: Kunai
@@ -106,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 4660347978950157885}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.24, y: 4.25, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0}
   m_Children:
   - {fileID: 2529965386877731246}
   m_Father: {fileID: 0}
@@ -160,8 +162,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &823086200105611207
-CapsuleCollider2D:
+--- !u!114 &7703870363591812508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660347978950157885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff345ef6b9fe3f847a74bc3f96088c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 1
+  rigit: {fileID: 0}
+  speed: 25
+  flyTime: 10
+  timer: 0
+  hadStopped: 0
+  hadTimeOut: 0
+--- !u!50 &4921858671180158114
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660347978950157885}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!60 &7101837004657128849
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -174,5 +216,20 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 10.24, y: 3.97}
-  m_Direction: 1
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.24, y: 3.97}
+    newSize: {x: 10.24, y: 3.97}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.66, y: 0.65}
+      - {x: 5.1, y: -0.023}
+      - {x: 1.66, y: -0.58}
+      - {x: 2, y: -1.95}
+      - {x: 0.5, y: 0}
+      - {x: 2, y: 1.95}

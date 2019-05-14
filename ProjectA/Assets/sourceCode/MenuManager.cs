@@ -21,9 +21,8 @@ public class MenuManager : MonoBehaviour
         }
         dp.options.RemoveAt(0);
 
-
-
         dp.value = (int)DataManager.Instance.currentLevel - 1;
+
     }
 
 }

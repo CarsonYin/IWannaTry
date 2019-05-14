@@ -62,7 +62,7 @@ public class DataManager : MonoBehaviour
 
         //dropdown = GameObject.Find("Cavans").transform.GetChild(0).gameObject.GetComponent<Dropdown>();
 
-        DataManager.Instance.currentLevel = LevelNames.Test;
+        DataManager.Instance.currentLevel = LevelNames.Level0;
 
         DataManager.Instance.currentSavePoint = -1;  // Means Did not reach any savepoint at current level
 
@@ -107,7 +107,7 @@ public class DataManager : MonoBehaviour
     {
         GameObject player = GameObject.Find("Player").gameObject;
         GameObject sceneManager = GameObject.Find("CurrentSceneManager").gameObject;
-        Debug.Log(startOptions.ToString());
+
         switch (startOptions)
         {
 
