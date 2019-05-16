@@ -228,7 +228,7 @@ public class PlayerControl : MonoBehaviour
                             hiraijinKunai.SetActive(true);
                         }
 
-                        hiraijinKunai.transform.position = transform.position + new Vector3(3.5f, 1.3f, 0);
+                        hiraijinKunai.transform.position = transform.position + new Vector3(0.5f, 1.3f, 0);
                     }
 
                     else
@@ -245,7 +245,7 @@ public class PlayerControl : MonoBehaviour
                             hiraijinKunaiLeft.SetActive(true);
                         }
 
-                        hiraijinKunaiLeft.transform.position = transform.position + new Vector3(-3.5f, 1.3f, 0);
+                        hiraijinKunaiLeft.transform.position = transform.position + new Vector3(-0.5f, 1.3f, 0);
                     }
                     // Instantiate<GameObject>(hiraijinKunai);
 
