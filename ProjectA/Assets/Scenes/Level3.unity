@@ -12610,7 +12610,7 @@ PrefabInstance:
     - target: {fileID: 759602785203710870, guid: 9b1d036903d25ba4db64d4bf80d97efe,
         type: 3}
       propertyPath: velocity.Array.data[0].y
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b1d036903d25ba4db64d4bf80d97efe, type: 3}
@@ -17222,6 +17222,11 @@ PrefabInstance:
       propertyPath: SavePoints.Array.data[2]
       value: 
       objectReference: {fileID: 531237308}
+    - target: {fileID: 2381691494503304470, guid: dec4c88e2b1aefb4181ade9203e439c4,
+        type: 3}
+      propertyPath: canHiraijin
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dec4c88e2b1aefb4181ade9203e439c4, type: 3}
 --- !u!4 &1386514979 stripped

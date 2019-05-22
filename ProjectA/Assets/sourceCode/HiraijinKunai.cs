@@ -62,12 +62,13 @@ public class HiraijinKunai : MonoBehaviour
 
         if (direction == HiraijinType.Ver)
         {
-            rigit.constraints = RigidbodyConstraints2D.FreezePositionX;
-            rigit.constraints = RigidbodyConstraints2D.FreezeRotation;
+            rigit.constraints = ~RigidbodyConstraints2D.FreezePositionY;  // 冻结除Y之外所有
+            //rigit.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
         else
         {
-            rigit.constraints = RigidbodyConstraints2D.FreezeRotation;
+            rigit.constraints = ~RigidbodyConstraints2D.FreezePositionX;
+            //rigit.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
 

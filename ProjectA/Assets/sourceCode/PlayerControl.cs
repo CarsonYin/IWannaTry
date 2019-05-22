@@ -65,7 +65,8 @@ public class PlayerControl : MonoBehaviour
 
     private SpriteRenderer shield;
 
-
+    public bool canShoot;
+    public bool canHiraijin;
 
 
     void Awake()
@@ -118,6 +119,10 @@ public class PlayerControl : MonoBehaviour
             canPlaceHiraijin = true;
         }
 
+        CurrentSceneManager csm = GameObject.Find("CurrentSceneManager").gameObject.GetComponent<CurrentSceneManager>();
+        canShoot = csm.canShoot;
+        canHiraijin = csm.canHiraijin;
+
     }
 
     //private void FixedUpdate()
@@ -168,7 +173,7 @@ public class PlayerControl : MonoBehaviour
 
         //Hiraijin
 
-        if (true)
+        if (canHiraijin)
         { // can use Hiraijin
             if (hiraijinKunai && hiraijinKunai.activeSelf)
             {
@@ -331,13 +336,7 @@ public class PlayerControl : MonoBehaviour
                     }
                 }
             }
-
-
         }
-
-
-
-
 
 
 
@@ -428,10 +427,15 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.K))
+        // Fire
+        if (canShoot)
         {
-            Fire();
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                Fire();
+            }
         }
+        // end Fire
 
         // Jump
         if (Input.GetKey(KeyCode.J))

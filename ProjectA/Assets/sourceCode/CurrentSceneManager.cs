@@ -8,7 +8,12 @@ public class CurrentSceneManager : MonoBehaviour
     public List<GameObject> SavePoints;
 
     public int currentSavePoint;
-    
+
+
+    public bool canShoot;
+    public bool canHiraijin;
+
+
 
     void Awake()
     {
