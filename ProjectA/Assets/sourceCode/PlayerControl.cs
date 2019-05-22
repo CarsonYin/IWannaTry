@@ -140,7 +140,7 @@ public class PlayerControl : MonoBehaviour
             // DataManager.Instance.BackToMenu();
 
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && !isDead)
         {
             DataManager.Instance.startOptions = DataManager.StartOptions.Respawn;
             SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
@@ -163,7 +163,7 @@ public class PlayerControl : MonoBehaviour
                 colorChangeTimer++;
             }
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.R))
             {
                 DataManager.Instance.startOptions = DataManager.StartOptions.Respawn;
                 SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());

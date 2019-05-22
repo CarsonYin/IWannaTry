@@ -31,9 +31,10 @@ public class DataManager : MonoBehaviour
         Level1 = 2,
         Level2 = 3,
         Level3 = 4,
-        OldLevel1 = 5,
-        OldLevel2 = 6,
-        Test = 7,
+        Level4 = 5,
+        OldLevel1 = 6,
+        OldLevel2 = 7,
+        Test = 8,
 
     }
 
