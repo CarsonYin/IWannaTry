@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4936607360881246}
   - component: {fileID: 212148730846746348}
   m_Layer: 0
-  m_Name: BasicBlock
+  m_Name: GroundBlock1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,7 +171,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1274226252862738}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: aba1e1de2f4e0204d8c4d954ae737edc, type: 2}
+  m_Material: {fileID: 6200000, guid: d530166b315444bd78abdb63fc410850, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -277,7 +277,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1805673136161182}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: aba1e1de2f4e0204d8c4d954ae737edc, type: 2}
+  m_Material: {fileID: 6200000, guid: d530166b315444bd78abdb63fc410850, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -383,7 +383,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 3865836172216340551}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: aba1e1de2f4e0204d8c4d954ae737edc, type: 2}
+  m_Material: {fileID: 6200000, guid: d530166b315444bd78abdb63fc410850, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
