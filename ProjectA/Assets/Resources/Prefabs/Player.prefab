@@ -98,7 +98,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.15, y: -0.29}
+  m_Offset: {x: 0, y: -0.29}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -165,7 +165,13 @@ MonoBehaviour:
   colorChangeTimer: 0
   isOnVerPlatform: 0
   isBelowVerPlatform: 0
+  hiraijinKunai: {fileID: 0}
+  hiraijinKunaiLeft: {fileID: 0}
+  hiraijinKunaiVer: {fileID: 0}
   shieldTimer: 0
+  hadPlacedHiraijin: 0
+  canShoot: 0
+  canHiraijin: 0
 --- !u!1 &5023340813077071404
 GameObject:
   m_ObjectHideFlags: 0

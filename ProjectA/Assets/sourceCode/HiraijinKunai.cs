@@ -133,6 +133,7 @@ public class HiraijinKunai : MonoBehaviour
     {
         if (direction == HiraijinType.Ver)
         {
+            //if (collision.gameObject.tag =="Ground"|| collision.gameObject.tag == "Wall")
             if (collision.gameObject.tag == "Ground")
             {
                 gameObject.GetComponent<PolygonCollider2D>().enabled = false;
