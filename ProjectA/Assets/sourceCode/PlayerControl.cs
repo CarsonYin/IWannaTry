@@ -592,11 +592,14 @@ public class PlayerControl : MonoBehaviour
 
         else if (other.gameObject.tag == "LevelGate")
         {
-            SaveData();
-            DataManager.Instance.startOptions = DataManager.StartOptions.NextLevel;
-            DataManager.Instance.currentLevel++;
-            SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
-            DataManager.Instance.currentSavePoint = -1;
+            if (!isDead)
+            {
+                SaveData();
+                DataManager.Instance.startOptions = DataManager.StartOptions.NextLevel;
+                DataManager.Instance.currentLevel++;
+                SceneManager.LoadScene(DataManager.Instance.currentLevel.ToString());
+                DataManager.Instance.currentSavePoint = -1;
+            }
         }
         else if (other.gameObject.tag == "SavePoint")
         {
