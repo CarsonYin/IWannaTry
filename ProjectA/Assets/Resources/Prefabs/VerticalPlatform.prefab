@@ -87,7 +87,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5683905794223571636}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: d530166b315444bd78abdb63fc410850, type: 2}
   m_IsTrigger: 0
@@ -193,7 +193,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5683905795263519247}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: d530166b315444bd78abdb63fc410850, type: 2}
   m_IsTrigger: 0
@@ -755,9 +755,10 @@ GameObject:
   - component: {fileID: 5685548740307819867}
   - component: {fileID: 5685548740307819866}
   - component: {fileID: 8872957106135260487}
+  - component: {fileID: 5685548740508809864}
   m_Layer: 0
   m_Name: VerticalPlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -799,12 +800,13 @@ MonoBehaviour:
   startSelfRotate: 0
   startTimer: 1
   canBeShoot: 0
+  usePhysicsMove: 1
   shootReact: 0
   timer: 0
   initialPosition: {x: 0, y: 0, z: 0}
   velocity:
-  - {x: 0, y: 2, z: 0}
-  - {x: 0, y: -2, z: 0}
+  - {x: 0, y: -100, z: 0}
+  - {x: 0, y: 100, z: 0}
   moveSleepTime:
   - 0
   - 0
@@ -836,11 +838,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 5685548740307819869}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: aba1e1de2f4e0204d8c4d954ae737edc, type: 2}
+  m_Material: {fileID: 6200000, guid: d530166b315444bd78abdb63fc410850, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 2.24}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -851,5 +853,26 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.24, y: 5.12}
+  m_Size: {x: 10, y: 0.64}
   m_EdgeRadius: 0
+--- !u!50 &5685548740508809864
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5685548740307819869}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

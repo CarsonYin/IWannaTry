@@ -10296,6 +10296,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7760155083328029809, guid: 37e0781f41d494d4e9e7d9e53faef7db,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37e0781f41d494d4e9e7d9e53faef7db, type: 3}
 --- !u!4 &1624106823 stripped
@@ -14591,6 +14596,7 @@ MonoBehaviour:
   startSelfRotate: 0
   startTimer: 1
   canBeShoot: 0
+  usePhysicsMove: 0
   shootReact: 0
   timer: 0
   initialPosition: {x: 0, y: 0, z: 0}

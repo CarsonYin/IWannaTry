@@ -69,6 +69,7 @@ public class PlayerControl : MonoBehaviour
     public bool canShoot;
     public bool canHiraijin;
 
+    private bool lastFrameOnMovingPlatform;
 
     void Awake()
     {
@@ -427,6 +428,7 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.J))
         {
+            Debug.Log(OnTheFloor);
             if (OnTheFloor)
             {
                 Jumping = true;
@@ -513,6 +515,9 @@ public class PlayerControl : MonoBehaviour
 
                 }
             }
+
+
+
             OnTheFloor = false;
             isOnVerPlatform = false;
             isBelowVerPlatform = false;
