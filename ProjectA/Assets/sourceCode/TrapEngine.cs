@@ -18,6 +18,9 @@ public class TrapEngine : MonoBehaviour
 
     public bool canBeShoot;
 
+    public bool usePhysicsMove;
+    private Rigidbody2D rigid;
+
     public SpecialReact shootReact;
 
     public enum SpecialReact
@@ -90,6 +93,11 @@ public class TrapEngine : MonoBehaviour
         initialPosition = transform.position;
         initialScale = transform.localScale;
         initialSelfRotation = transform.rotation;
+
+        if (usePhysicsMove)
+        {
+            rigid = gameObject.GetComponent<Rigidbody2D>();
+        }
 
     }
 
@@ -170,7 +178,14 @@ public class TrapEngine : MonoBehaviour
             {
                 if (timer >= moveSleepTime[moveIndex] && timer < moveSleepTime[moveIndex] + moveDuration[moveIndex])
                 {
-                    transform.position += velocity[moveIndex] * Time.fixedDeltaTime;
+                    if (usePhysicsMove)
+                    {
+                        rigid.velocity = new Vector2(velocity[moveIndex].x * Time.fixedDeltaTime, velocity[moveIndex].y * Time.fixedDeltaTime);
+                    }
+                    else
+                    {
+                        transform.position += velocity[moveIndex] * Time.fixedDeltaTime;
+                    }
                 }
                 else if (timer >= moveSleepTime[moveIndex] + moveDuration[moveIndex])
                 {

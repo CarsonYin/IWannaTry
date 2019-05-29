@@ -5958,10 +5958,10 @@ Transform:
   - {fileID: 146423749}
   - {fileID: 2106573174}
   - {fileID: 639207678}
+  - {fileID: 958160132}
   - {fileID: 239078764}
   - {fileID: 2134248354}
   - {fileID: 847645468}
-  - {fileID: 958160132}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7918,6 +7918,11 @@ PrefabInstance:
       propertyPath: SavePoints.Array.data[1]
       value: 
       objectReference: {fileID: 1045029625}
+    - target: {fileID: 2381691494503304470, guid: dec4c88e2b1aefb4181ade9203e439c4,
+        type: 3}
+      propertyPath: canHiraijin
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dec4c88e2b1aefb4181ade9203e439c4, type: 3}
 --- !u!4 &1386514979 stripped
@@ -12563,5 +12568,42 @@ PrefabInstance:
       propertyPath: velocity.Array.data[1].y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5685548740307819866, guid: af31ddd97a6579c40a8e9846d65d6175,
+        type: 3}
+      propertyPath: usePhysicsMove
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8872957106135260487, guid: af31ddd97a6579c40a8e9846d65d6175,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: d530166b315444bd78abdb63fc410850, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af31ddd97a6579c40a8e9846d65d6175, type: 3}
+--- !u!1 &5685548740508809863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5685548740307819869, guid: af31ddd97a6579c40a8e9846d65d6175,
+    type: 3}
+  m_PrefabInstance: {fileID: 5685548740508809862}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &5685548740508809864
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5685548740508809863}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
