@@ -32,7 +32,8 @@ public class DataManager : MonoBehaviour
         Level2 = 3,
         Level3 = 4,
         Level4 = 5,
-        GameClear = 6,
+        Boss = 6,
+        GameClear = 7,
 
     }
 

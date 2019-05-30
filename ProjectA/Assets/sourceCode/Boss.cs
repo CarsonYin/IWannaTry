@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
+
+    public int HP;
+    public int HPMax;
+    public float hpFloat;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        HP = HPMax;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        hpFloat = (float)HP / HPMax;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet") {
+            HP--;
+        }
+    }
+
 }

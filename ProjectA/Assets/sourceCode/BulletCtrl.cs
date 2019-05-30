@@ -26,4 +26,10 @@ public class BulletCtrl : MonoBehaviour
         rb.velocity = speed;
 
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(gameObject, 0);
+    }
 }

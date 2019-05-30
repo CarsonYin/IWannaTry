@@ -566,7 +566,7 @@ public class PlayerControl : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Deadly")
+        if (other.gameObject.tag == "Deadly" | other.gameObject.tag == "Boss")
         {
             if (haveShield)
             {

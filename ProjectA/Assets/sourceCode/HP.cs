@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class HP : MonoBehaviour
 {
-    public GameObject Boss;
-    private 
+    public GameObject bossObj;
+    private Boss bossScrpit;
+    private RectTransform rect;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        bossScrpit = bossObj.GetComponent<Boss>();
+        rect = gameObject.GetComponent<RectTransform>();
     }
-
     // Update is called once per frame
     void Update()
     {
-        
+        rect.localScale = new Vector3(bossScrpit.hpFloat, rect.localScale.y, rect.localScale.z);
     }
+
 }
