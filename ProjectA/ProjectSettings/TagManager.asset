@@ -18,6 +18,8 @@ TagManager:
   - Kunai
   - TeleDes
   - MovingBlock
+  - BackToMenu
+  - Boss
   layers:
   - Default
   - TransparentFX

@@ -53,10 +53,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\sourceCode\Boss.cs" />
      <Compile Include="Assets\sourceCode\BulletCtrl.cs" />
      <Compile Include="Assets\sourceCode\CurrentSceneManager.cs" />
      <Compile Include="Assets\sourceCode\DataManager.cs" />
      <Compile Include="Assets\sourceCode\HiraijinKunai.cs" />
+     <Compile Include="Assets\sourceCode\HP.cs" />
      <Compile Include="Assets\sourceCode\MenuManager.cs" />
      <Compile Include="Assets\sourceCode\PlayerControl.cs" />
      <Compile Include="Assets\sourceCode\SavePointData.cs" />

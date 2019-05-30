@@ -7931,7 +7931,7 @@ PrefabInstance:
     - target: {fileID: 2381691494503304470, guid: dec4c88e2b1aefb4181ade9203e439c4,
         type: 3}
       propertyPath: canHiraijin
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dec4c88e2b1aefb4181ade9203e439c4, type: 3}

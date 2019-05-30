@@ -606,6 +606,10 @@ public class PlayerControl : MonoBehaviour
                 DataManager.Instance.currentSavePoint = -1;
             }
         }
+        else if (other.gameObject.tag == "BackToMenu")
+        {
+            SceneManager.LoadScene("StartPage");
+        }
         else if (other.gameObject.tag == "SavePoint")
         {
             // other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
@@ -633,7 +637,7 @@ public class PlayerControl : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Deadly")
+        if (collision.gameObject.tag == "Deadly" || collision.gameObject.tag == "Boss")
         {
             Dead();
         }
