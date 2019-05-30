@@ -7,6 +7,7 @@ public class HP : MonoBehaviour
     public GameObject bossObj;
     private Boss bossScrpit;
     private RectTransform rect;
+    public bool useHp2;
 
     private void Awake()
     {
@@ -16,7 +17,13 @@ public class HP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rect.localScale = new Vector3(bossScrpit.hpFloat, rect.localScale.y, rect.localScale.z);
+        if (!useHp2)
+        {
+            rect.localScale = new Vector3(bossScrpit.hpFloat, rect.localScale.y, rect.localScale.z);
+        }
+        else {
+            rect.localScale = new Vector3(bossScrpit.hpFloat2, rect.localScale.y, rect.localScale.z);
+        }
     }
 
 }
