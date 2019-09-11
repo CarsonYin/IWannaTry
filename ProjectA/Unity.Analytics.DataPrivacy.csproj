@@ -296,9 +296,6 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Messaging">
       <HintPath>Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Messaging.dll</HintPath>
     </Reference>
-    <Reference Include="UnityVS.VersionSpecific">
-      <HintPath>Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll</HintPath>
-    </Reference>
     <Reference Include="netstandard">
       <HintPath>E:\Unity\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
     </Reference>
